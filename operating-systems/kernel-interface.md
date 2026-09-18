@@ -16,7 +16,7 @@ The operating system's core program that always runs is called the **kernel**.
 
 The kernel communicates to the hardware directly, or through systems programs called **device drivers**.
 
-## Privileges and System Calls
+## Privileges
 
 The hardware is organized in terms of protection rings. It has at least two protection rings:
 - Kernel/supervisor/priviledged mode
@@ -24,13 +24,23 @@ The hardware is organized in terms of protection rings. It has at least two prot
   - the kernel is the systems program that runs here
   - ring 3
 - User mode
-  - restricted access
+  - restricts access on which instructions can be executed and which memory can be accessed.
   - regular applications programs run here
   - ring 0
 
 <img src="images/protection_rings.svg" width="500">
 
-This is enforced by a special register or a flag in the CPU, called a **mode bit**, that tracks which mode it's currently in. Whenever this flag is enabled, i.e., `mode bit = 1`, then the hardware restricts which instructions can be executed and which memory can be accessed.
+This is enforced by a special register or a flag in the CPU, called a **mode bit**, that tracks which mode it's currently in. 
+- `mode bit = 1`: kernel mode.
+- `mode bit = 0`: user mode.
+
+In order for any event that disrupts normal sequential instruction execution and transfers control to the OS/kernel, 
+
+- **Trap**: the application program deliberately invokes the kernel, most commonly via a system call (see below)
+- **Exception**: an unintended but synchronous consequence of the currently executing instruction (e.g., divide-by-zero, invalid memory access (page fault), illegal opcode
+- **Interrupt** an asynchronous event from external hardware, unrelated to whatever instruction is currently executing (e.g., a disk finishing a read, a network packet arriving, a timer firing)
+
+#### System Calls
 
 In order for applications programs to perform privilege operations, it must request the kernel to carry it out on its behalf, and waits for the result. We call this request a **system call**. 
 
