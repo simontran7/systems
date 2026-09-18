@@ -10,7 +10,7 @@
 
 ## Operating Systems
 
-- [Kernel Interface](operating-systems/kernel-interface.md)
+- [Introduction](operating-systems/introduction.md)
 - [Processes](operating-systems/processes.md)
 - [Threads](operating-systems/threads.md)
 - [Synchronization](operating-systems/synchronization.md)
