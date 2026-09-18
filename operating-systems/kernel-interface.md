@@ -1,4 +1,4 @@
-# Introduction
+# Kernel Interface
 
 An **operating system (OS)** is the core software that manages a computer's hardware and provides a platform for running other software (applications).
 
@@ -12,28 +12,25 @@ An operating system is analogous to:
 - A referee: it manages protection, isolation, and sharing of resources
 - Glue: it glues common services together
 
-## Organization
+The operating system's core program that always runs is called the **kernel**.
 
-An operating system can be broken down into three parts:
-- Kernel
-- Systems program
-- Application program
+The kernel communicates to the hardware directly, or through systems programs called **drivers**.
+
+## Priviledges
 
 The hardware provides at least two privilege modes:
-- Kernel mode
+- Kernel/supervisor/priviledged mode
   - full access to all hardware
-  - only the OS kernel runs here
+  - the kernel is the systems program that runs here
 - User mode
   - restricted access
-  - regular applications run here
+  - regular applications programs run here
 
-A special register or flag in the CPU tracks which mode it's currently in, and this restricts which instructions can be executed and which memory can be accessed.
+This is enforced by a special register or a flag in the CPU that tracks which mode it's currently in. Whenever this flag is enabled, the hardware restricts which instructions can be executed and which memory can be accessed.
 
-In order for applications programs to perform priviledge operations, it involves from user mode to and must ask the kernel (via **system calls**) to do privileged operations like reading a file or accessing the network 
+In order for applications programs to perform priviledge operations, it needs to transition from user mode to kernel mode. This is accomplished by requesting the kernel via **system calls** to do privileged operations
+
+<img src="images/user_mode_kernel_mode_transition.svg" width="500">
 
 
-
-The kernel is the operating system. As the figure illustrates, the kernel communicates to hardware both directly and through drivers.
-
-Just as the kernel abstracts the hardware to user programs, drivers abstract hardware to the kernel. For example there are many different types of graphic card, each one with slightly different features. As long as the kernel exports an API, people who have access to the specifications for the hardware can write drivers to implement that API. This way the kernel can access many different types of hardware.
 
