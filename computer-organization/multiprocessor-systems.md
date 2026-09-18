@@ -24,9 +24,7 @@ Rather than relying on bus snooping, NUMA systems maintain cache coherency throu
 
 When a processor requests data, the request routes to the home directory of the node where that memory resides. The directory checks its metadata: if the data is clean (the dirty bit is not set), it provides the data directly and sets the valid bit for the requesting processor. If the data is dirty, the directory retrieves the updated value from the processor holding it, writes it back to main memory, then hands it to the requester. When a processor writes to a cache line, the directory sends invalidate messages only to the processors with valid bits set, the ones that actually have the line cached. Since SMP systems instead broadcast invalidate messages to every processor on the shared bus and force each one to check whether the message applies, this targeted invalidation is far cheaper. By eliminating broadcast traffic, the directory-based approach lets NUMA systems scale to hundreds or thousands of processors. For very large systems, hierarchical directory schemes go further, using multiple directory levels that communicate over general-purpose interconnect networks instead of shared CPU buses.
 
-For systems programmers, NUMA awareness matters mainly for performance, since remote memory accesses can run 2-3x slower than local ones. Tools like `numactl` bind processes and memory allocations to specific nodes, maximizing fast local accesses while minimizing expensive cross-node traffic.
-
-<img src="images/numa-system.png" width="620">
+<img src="images/numa_architecture.svg" width="500">
 
 ### Distributed Memory Multiprocessor Systems
 
