@@ -28,7 +28,7 @@ The hardware is organized in terms of protection rings. It has at least two prot
   - regular applications programs run here
   - ring 0
 
-<img src="protection_rings.svg" width="500">
+<img src="images/protection_rings.svg" width="500">
 
 This is enforced by a special register or a flag in the CPU, called a **mode bit**, that tracks which mode it's currently in. Whenever this flag is enabled, the hardware restricts which instructions can be executed and which memory can be accessed.
 
