@@ -1,5 +1,7 @@
 # Introduction
 
+## Responsibility of an OS
+
 An **operating system (OS)** is the core software that manages a computer's hardware and provides a platform for running other software (applications).
 
 An operating system is analogous to:
