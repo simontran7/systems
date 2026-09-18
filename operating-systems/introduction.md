@@ -1,4 +1,4 @@
-# Kernel Interface
+# Introduction
 
 An **operating system (OS)** is the core software that manages a computer's hardware and provides a platform for running other software (applications).
 
@@ -22,11 +22,11 @@ The hardware is organized in terms of protection rings. It has at least two prot
 - Kernel/supervisor/priviledged mode
   - full access to all hardware
   - the kernel is the systems program that runs here
-  - ring 3
+  - ring 0
 - User mode
   - restricts access on which instructions can be executed and which memory can be accessed.
   - regular applications programs run here
-  - ring 0
+  - ring 3
 
 <img src="images/protection_rings.svg" width="500">
 
