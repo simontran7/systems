@@ -34,6 +34,8 @@ This is enforced by a special register or a flag in the CPU, called a **mode bit
 - `mode bit = 1`: kernel mode.
 - `mode bit = 0`: user mode.
 
+## System Call
+
 In order for applications programs to perform privilege operations, it must request the kernel to carry it out on its behalf, and waits for the result. We call this request a **system call**. 
 
 System calls vary in terms of the specific operation being requested (e.g., reading a file, writing to a socket, allocating memory, creating a process, etc.) and the kernel keeps track of and distinguishes between them by assigning each one a unique integer ID called a syscall number.
