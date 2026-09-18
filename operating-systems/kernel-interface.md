@@ -30,7 +30,7 @@ The hardware is organized in terms of protection rings. It has at least two prot
 
 <img src="images/protection_rings.svg" width="500">
 
-This is enforced by a special register or a flag in the CPU, called a **mode bit**, that tracks which mode it's currently in. Whenever this flag is enabled, the hardware restricts which instructions can be executed and which memory can be accessed.
+This is enforced by a special register or a flag in the CPU, called a **mode bit**, that tracks which mode it's currently in. Whenever this flag is enabled, i.e., `mode bit = 1`, then the hardware restricts which instructions can be executed and which memory can be accessed.
 
 In order for applications programs to perform privilege operations, it must request the kernel to carry it out on its behalf, and waits for the result. We call this request a **system call**. 
 
