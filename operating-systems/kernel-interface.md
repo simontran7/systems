@@ -34,14 +34,6 @@ This is enforced by a special register or a flag in the CPU, called a **mode bit
 - `mode bit = 1`: kernel mode.
 - `mode bit = 0`: user mode.
 
-In order for any event that disrupts normal sequential instruction execution and transfers control to the OS/kernel, 
-
-- **Trap**: the application program deliberately invokes the kernel, most commonly via a system call (see below)
-- **Exception**: an unintended but synchronous consequence of the currently executing instruction (e.g., divide-by-zero, invalid memory access (page fault), illegal opcode
-- **Interrupt** an asynchronous event from external hardware, unrelated to whatever instruction is currently executing (e.g., a disk finishing a read, a network packet arriving, a timer firing)
-
-#### System Calls
-
 In order for applications programs to perform privilege operations, it must request the kernel to carry it out on its behalf, and waits for the result. We call this request a **system call**. 
 
 System calls vary in terms of the specific operation being requested (e.g., reading a file, writing to a socket, allocating memory, creating a process, etc.) and the kernel keeps track of and distinguishes between them by assigning each one a unique integer ID called a syscall number.
@@ -52,7 +44,7 @@ A system call work as follows:
    - Move the syscall number and the syscall arguments each into registers
    - Execute the `syscall` **trap instruction**
 3. The trap instruction will them perform two actions atomically:
-    - Switch the CPU's privilege level from ring 3 to ring 0
+    - Switch the CPU's privilege level from ring 3 to ring 0 by flipping the mode bit from 1 to 0
     - Jump to a fixed, kernel-controlled entry point
 4. Once inside the kernel with elevated privilege, the kernel looks at a syscall number and arguments, figures out what was requested, and performs the operation itself.
 5. When done, the kernel executes a return-from-trap instruction which switches the CPU back to ring 3 and resumes the application program.
