@@ -42,7 +42,7 @@ A system call work as follows:
 
 1. The application program calls a specific system call via a small wrapper function (usually in libc). This wrapper function will:
    - Move the syscall number and the syscall arguments each into registers
-   - Execute the `syscall` **trap instruction**
+   - Execute the `syscall` instruction, which is a **trap**: a synchronous exception, reproducible at exactly the same point in the code on re-run.
 3. The trap instruction will them perform two actions atomically:
     - Switch the CPU's privilege level from ring 3 to ring 0 by flipping the mode bit from 1 to 0
     - Jump to a fixed, kernel-controlled entry point
