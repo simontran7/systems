@@ -14,7 +14,7 @@ An operating system is analogous to:
 
 The operating system's core program that always runs is called the **kernel**.
 
-The kernel communicates to the hardware directly, or through systems programs called **drivers**.
+The kernel communicates to the hardware directly, or through systems programs called **device drivers**.
 
 ## Privileges and System Calls
 
