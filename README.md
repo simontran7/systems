@@ -2,21 +2,21 @@
 
 ## Computer Organization
 
-- [Data Representation](computer-organization/data-representation)
-- [Microarchitecture](computer-organization/microarchitecture)
-- [Physical Memory](computer-organization/physical-memory)
-- [Assembly](computer-organization/assembly)
-- [Multiprocessor Systems](computer-organization/multiprocessor-systems)
+- [Data Representation](computer-organization/data-representation.md)
+- [Microarchitecture](computer-organization/microarchitecture.md)
+- [Physical Memory](computer-organization/physical-memory.md)
+- [Assembly](computer-organization/assembly.md)
+- [Multiprocessor Systems](computer-organization/multiprocessor-systems.md)
 
 ## Operating Systems
 
-- [Kernel Interface](operating-systems/kernel-interface)
-- [Processes](operating-systems/processes)
-- [Threads](operating-systems/threads)
-- [Synchronization](operating-systems/synchronization)
+- [Kernel Interface](operating-systems/kernel-interface.md)
+- [Processes](operating-systems/processes.md)
+- [Threads](operating-systems/threads.md)
+- [Synchronization](operating-systems/synchronization.md)
 
 ## Computer Networks
 
 ## Performance Optimizations
 
-- [Record Packing](record-packing)
+- [Record Packing](record-packing.md)
