@@ -21,14 +21,12 @@ The kernel communicates to the hardware directly, or through systems programs ca
 ## Privileges
 
 The hardware is organized in terms of protection rings. It has at least two protection rings:
-- Kernel/supervisor/priviledged mode
+- Ring 0: Kernel/supervisor/priviledged mode
   - full access to all hardware
   - the kernel is the systems program that runs here
-  - ring 0
-- User mode
+- Ring 3: User mode
   - restricts access on which instructions can be executed and which memory can be accessed.
   - regular applications programs run here
-  - ring 3
 
 <img src="images/protection_rings.svg" width="500">
 
@@ -50,8 +48,8 @@ A system call work as follows:
 3. The trap instruction will them perform two actions atomically:
     - Switch the CPU's privilege level from ring 3 to ring 0 by flipping the mode bit from 1 to 0
     - Jump to a fixed, kernel-controlled entry point
-4. Once inside the kernel with elevated privilege, the kernel looks at a syscall number and arguments, figures out what was requested, and performs the operation itself.
-5. When done, the kernel executes a return-from-trap instruction which switches the CPU back to ring 3 and resumes the application program.
+4. The kernel looks at a syscall number and arguments, and performs the operation itself.
+5. The kernel executes a return-from-trap instruction which switches the CPU back to ring 3 and resumes the application program.
 
 <img src="images/user_mode_kernel_mode_transition.svg" width="500">
 
